@@ -17,6 +17,75 @@ This full-stack application lets users upload PDF documents and interactively as
 * Document Parsing: Multer
 * Database: MongoDB
 
+## System Architecture Overview
+```
+[Client Layer]
+       ↓
+[Web Application]
+       ↓
+[API Gateway/Load Balancer]
+       ↓
+[Backend Services]
+    ├── Document Processing Service
+    └── NLP Question Answering Service
+       ↓
+[Data Layer]
+    ├── Document Storage
+    ├── Vector Database
+    └── Metadata Database
+```
+
+## High-Level Architecture Components
+
+**Frontend (Client Layer)**
+
+React.js Single Page Application (SPA)
+* Responsive design
+* State management (Fast API)
+* Component-based architecture
+* File upload interface
+* Question input mechanism
+* Result visualization
+
+**Backend Services**
+
+
+***Document Processing Microservice***
+
+* PDF parsing
+* Text extraction
+* Document preprocessing
+* Metadata generation
+* Text segmentation
+
+***Natural Language Processing (NLP) Microservice***
+
+* Question understanding
+* Semantic search
+* Answer Extraction
+* Confidence scoring
+
+## Document Upload Flow
+```
+User Upload → 
+    Validate File → 
+        Extract Text → 
+            Preprocess Text → 
+                Split into Chunks → 
+                    Generate Embeddings → 
+                        Store in Vector Database
+```
+## Question Answering Flow
+```
+User Question → 
+    Preprocess Query → 
+        Generate Query Embedding → 
+            Semantic Search in Vector Database → 
+                Retrieve Relevant Contexts → 
+                    Extract Best Answer → 
+                        Rank & Score Answers
+```
+
 ## Setup and Installation
 
 **Backend Setup**
